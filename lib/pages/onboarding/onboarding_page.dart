@@ -1,8 +1,8 @@
 // ignore_for_file: unused_field
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app_ui/pages/first_page.dart';
+import 'package:travel_app_ui/pages/onboarding/widgets/goto_next_screen_button.dart';
 import 'package:travel_app_ui/pages/onboarding/widgets/onboarding_page_widget.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -54,13 +54,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const FirstPage(),
-        ), // Replace 'HomePage' with your actual home page widget
+        ),
       );
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: [
@@ -76,11 +77,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
             ),
           ),
           Positioned(
-            left: 150,
-            bottom: 45,
-            child: GestureDetector(
+            left: size.width / 2.5,
+            bottom: size.height * 0.1 - 20,
+            child: CustomButton(
               onTap: goToNextScreen,
-              child: SvgPicture.asset("assets/icons/button.svg"),
+              borderColor: const Color(0xff163C9F),
             ),
           ),
         ],

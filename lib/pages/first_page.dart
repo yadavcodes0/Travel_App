@@ -16,7 +16,7 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   final PageController _pageController = PageController(initialPage: 2);
-  int _currentPageIndex = 0;
+  int _currentPageIndex = 2;
 
   final List<Widget> _pages = [
     const NotificationsPage(),

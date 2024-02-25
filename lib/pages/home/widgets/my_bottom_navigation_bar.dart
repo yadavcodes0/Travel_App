@@ -60,8 +60,11 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         children: [
           SvgPicture.asset(
             iconPath,
-            color:
-                widget.selectedIndex == index ? const Color(0xff163C9F) : null,
+            colorFilter: ColorFilter.mode(
+                (widget.selectedIndex == index
+                    ? const Color(0xff163C9F)
+                    : const Color.fromARGB(217, 173, 180, 189)),
+                BlendMode.srcIn),
           ),
           const SizedBox(height: 6),
           if (widget.selectedIndex == index)
