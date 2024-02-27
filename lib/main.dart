@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:travel_app_ui/pages/onboarding/onboarding_page.dart';
+import 'package:travel_app_ui/pages/login/login_page.dart';
 
 import 'pages/account_page.dart';
 import 'pages/activity_page.dart';
@@ -28,7 +28,7 @@ class TravelApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const OnboardingPage(),
+        '/': (context) => const LoginPage(),
         '/home': (context) => const HomePage(),
         '/account': (context) => const AccountsPage(),
         '/activity': (context) => const ActivityPage(),

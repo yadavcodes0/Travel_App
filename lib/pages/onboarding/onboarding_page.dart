@@ -80,6 +80,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             left: size.width / 2.5,
             bottom: size.height * 0.1 - 20,
             child: CustomButton(
+              value: _currentPageIndex / (_onboardingScreens.length - 1),
               onTap: goToNextScreen,
               borderColor: const Color(0xff163C9F),
             ),
