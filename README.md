@@ -102,7 +102,7 @@ lib/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/GlobeGlider.git
+git https://github.com/yadavcodes0/Travel_App.git/
 cd Travel_App
 
 # Install dependencies
