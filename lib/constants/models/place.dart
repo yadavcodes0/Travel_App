@@ -43,6 +43,30 @@ List<Place> popularPlaces = [
     location: "Venice",
     price: "80",
     rating: "4.4",
+  ),
+  Place(
+    imageUrl: "assets/images/image1.jpeg",
+    name: "Grand Venice Resort",
+    details: "Experience the ultimate luxury right on the canals of Venice.",
+    location: "Venice",
+    price: "120",
+    rating: "4.8",
+  ),
+  Place(
+    imageUrl: "assets/images/image2.jpeg",
+    name: "Ocean View Villa",
+    details: "Wake up to stunning ocean views and enjoy premium amenities.",
+    location: "Maldives",
+    price: "250",
+    rating: "4.9",
+  ),
+  Place(
+    imageUrl: "assets/images/image3.jpeg",
+    name: "Alpine Retreat",
+    details: "Escape to the mountains in this cozy yet luxurious lodge.",
+    location: "Swiss Alps",
+    price: "150",
+    rating: "4.7",
   )
 ];
 
@@ -73,6 +97,22 @@ List<Place> recommendedPlaces = [
     location: "Venice",
     price: "92",
     rating: "4.7",
+  ),
+  Place(
+    imageUrl: "assets/images/image4.jpeg",
+    name: "City Lights Hotel",
+    details: "Stay in the heart of the city with breathtaking skyline views.",
+    location: "New York",
+    price: "180",
+    rating: "4.6",
+  ),
+  Place(
+    imageUrl: "assets/images/image6.jpeg",
+    name: "Tropical Oasis",
+    details: "A hidden gem surrounded by lush gardens and pristine beaches.",
+    location: "Bali",
+    price: "110",
+    rating: "4.8",
   )
 ];
 

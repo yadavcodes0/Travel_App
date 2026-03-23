@@ -14,6 +14,17 @@ class _LoginPageState extends State<LoginPage> {
   bool showPassword = false;
   final _formKey = GlobalKey<FormState>();
 
+  skipLogin(BuildContext context) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) {
+          return const OnboardingPage();
+        },
+      ),
+    );
+  }
+
   moveToOnboarding(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       await Navigator.push(
@@ -83,9 +94,9 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Username cannot be empty";
-                      } else if (!value.contains("@gmail.com")) {
-                        return "Please enter a valid email";
+                        return "Email or phone number cannot be empty";
+                      } else if (!_isValidLoginId(value)) {
+                        return "Please enter a valid email or phone number";
                       }
                       return null;
                     },
@@ -171,6 +182,21 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 40),
 
+                  // Skip for now button
+                  GestureDetector(
+                    onTap: () => skipLogin(context),
+                    child: Text(
+                      'Skip for now',
+                      style: GoogleFonts.inter(
+                        color: const Color(0xFF8189B0),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
                   // login button
                   GestureDetector(
                     onTap: () => moveToOnboarding(context),
@@ -246,4 +272,13 @@ bool _isStrongPassword(String password) {
       hasLowercase.hasMatch(password) &&
       hasDigit.hasMatch(password) &&
       hasSpecialChar.hasMatch(password);
+}
+
+bool _isValidLoginId(String value) {
+  final trimmedValue = value.trim();
+  final emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
+  final phonePattern = RegExp(r'^\+?[0-9]{7,15}$');
+
+  return emailPattern.hasMatch(trimmedValue) ||
+      phonePattern.hasMatch(trimmedValue);
 }

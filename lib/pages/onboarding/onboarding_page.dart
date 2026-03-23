@@ -60,21 +60,25 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: [
-          Expanded(
-            child: PageView(
-              controller: _pageController,
-              onPageChanged: (int pageIndex) {
-                setState(() {
-                  _currentPageIndex = pageIndex;
-                });
-              },
-              children: _onboardingScreens,
-            ),
+          PageView(
+            controller: _pageController,
+            onPageChanged: (int pageIndex) {
+              setState(() {
+                _currentPageIndex = pageIndex;
+              });
+            },
+            children: _onboardingScreens,
           ),
           Positioned(
             left: size.width / 2.5,

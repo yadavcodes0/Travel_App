@@ -1,0 +1,18 @@
+﻿
+> Configure project :gradle
+WARNING: Unsupported Kotlin plugin version.
+The `embedded-kotlin` and `kotlin-dsl` plugins rely on features of Kotlin `1.6.21` that might work differently than in the requested version `1.9.20`.
+
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources UP-TO-DATE
+
+> Task :gradle:compileKotlin
+w: Inconsistent JVM-target compatibility detected for tasks 'compileJava' (11) and 'compileKotlin' (1.8).
+This will become an error in Gradle 8.0.
+Consider using JVM Toolchain: https://kotl.in/gradle/jvm/toolchain
+Learn more about JVM-target validation: https://kotl.in/gradle/jvm/target-validation 
+
+
+> Task :gradle:compileKotlin FAILED
+4 actionable tasks: 2 executed, 2 up-to-date

@@ -16,13 +16,22 @@ class PlaceDetails extends StatefulWidget {
 
 class _PlaceDetailsState extends State<PlaceDetails>
     with TickerProviderStateMixin {
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final TabController tabController = TabController(
-      length: 3,
-      vsync: this,
-      initialIndex: 0,
-    );
     return Scaffold(
       body: Stack(
         children: [
@@ -45,7 +54,7 @@ class _PlaceDetailsState extends State<PlaceDetails>
               Padding(
                 padding: const EdgeInsets.only(left: 24, right: 114),
                 child: TabBar(
-                  controller: tabController,
+                  controller: _tabController,
                   indicatorColor: const Color(0xFF163C9F),
                   indicatorSize: TabBarIndicatorSize.label,
                   labelPadding: EdgeInsets.zero,
@@ -76,7 +85,7 @@ class _PlaceDetailsState extends State<PlaceDetails>
               ),
               Expanded(
                 child: TabBarView(
-                  controller: tabController,
+                  controller: _tabController,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(24.0),
@@ -143,6 +152,30 @@ class _PlaceDetailsState extends State<PlaceDetails>
               child: SvgPicture.asset(
                 "assets/icons/heart.svg",
                 fit: BoxFit.none,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 55,
+            left: 24,
+            child: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Container(
+                width: 44,
+                height: 44,
+                decoration: const ShapeDecoration(
+                  color: Colors.white,
+                  shape: OvalBorder(),
+                  shadows: [
+                    BoxShadow(
+                      color: Color(0x26000000),
+                      blurRadius: 14,
+                      offset: Offset(2, 4),
+                      spreadRadius: 0,
+                    )
+                  ],
+                ),
+                child: const Icon(Icons.arrow_back_ios_new, color: Colors.black, size: 20),
               ),
             ),
           ),
